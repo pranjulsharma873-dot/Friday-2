@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRIDAY AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <button class="menu-btn" id="menuButton" type="button" aria-label="Open menu">☰</button>
+        <div class="title">FRIDAY AI</div>
+        <div class="header-spacer"></div>
+    </header>
+
+    <main class="main">
+        <div id="chatMessages" class="chat-messages"></div>
+
+        <!-- plus popup -->
+        <div class="plus-menu" id="plusMenu">
+            <button type="button" class="plus-item" id="optCamera">📷 Camera</button>
+            <button type="button" class="plus-item" id="optPhoto">🖼️ Photo</button>
+            <button type="button" class="plus-item" id="optFile">📎 File</button>
+            <button type="button" class="plus-item" id="optVideoMode">🎥 Video Mode (Live)</button>
+        </div>
+
+        <input type="file" id="cameraInput" accept="image/*" capture="environment" hidden>
+        <input type="file" id="photoInput" accept="image/*" hidden>
+        <input type="file" id="fileInput" hidden>
+
+        <div class="chat-box">
+            <button class="plus-btn" id="plusButton" type="button" aria-label="Add">+</button>
+            <input type="text" class="chat-input" id="chatInput" placeholder="Ask FRIDAY..." autocomplete="off">
+            <button class="mic-btn" id="voiceModeButton" type="button" aria-label="Voice mode">🎙️</button>
+            <button class="send-btn" id="sendButton" type="button" aria-label="Send">➤</button>
+        </div>
+    </main>
+
+    <div class="overlay" id="overlay"></div>
+
+    <aside class="side-menu" id="sideMenu">
+        <div class="menu-header">
+            <div class="menu-title">FRIDAY AI</div>
+            <button class="close-btn" id="closeMenuButton" type="button">×</button>
+        </div>
+        <button class="menu-item" id="profileMenu" type="button">👤 Profile</button>
+        <button class="menu-item" id="newChatButton" type="button">💬 New Chat</button>
+        <button class="menu-item" id="historyMenu" type="button">🕘 Chat History</button>
+        <button class="menu-item" id="pluginsMenu" type="button">🧩 Plugins</button>
+        <button class="menu-item" id="settingsMenu" type="button">⚙️ Settings</button>
+    </aside>
+
+    <div class="modal" id="modal">
+        <h2 id="modalTitle">FRIDAY AI</h2>
+        <p id="modalText">Welcome to FRIDAY AI.</p>
+        <button class="modal-close" id="modalClose" type="button">Close</button>
+    </div>
+
+    <!-- VOICE MODE -->
+    <div class="voice-mode" id="voiceMode">
+        <div class="voice-mode-top">
+            <button class="voice-icon-btn" id="voiceModeMinimize" type="button">⌄</button>
+        </div>
+        <div class="voice-orb-wrap"><div class="voice-orb" id="voiceOrb"></div></div>
+        <div class="voice-mode-status" id="voiceModeStatus">Tap the mic to start</div>
+        <div class="voice-mode-bottom">
+            <button class="voice-icon-btn" id="voiceModeMute" type="button">🎙️</button>
+            <button class="voice-icon-btn" id="voiceModeClose" type="button">✕</button>
+        </div>
+    </div>
+
+    <!-- VIDEO MODE (camera + live AI) -->
+    <div class="video-mode" id="videoMode">
+        <video id="videoPreview" class="video-preview" autoplay playsinline muted></video>
+        <div class="video-mode-top">
+            <button class="voice-icon-btn" id="videoModeFlip" type="button" aria-label="Flip camera">🔄</button>
+            <button class="voice-icon-btn" id="videoModeMinimize" type="button" aria-label="Close">⌄</button>
+        </div>
+        <div class="video-mode-status" id="videoModeStatus">Camera khul rahi hai...</div>
+        <div class="voice-mode-bottom">
+            <button class="voice-icon-btn" id="videoModeMute" type="button">🎙️</button>
+            <button class="voice-icon-btn" id="videoModeClose" type="button">✕</button>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
